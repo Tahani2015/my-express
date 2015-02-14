@@ -1,0 +1,52 @@
+extends layout.jade
+
+block content
+	h2(style='text-align: center;color: green')= repo.name
+	div#example-grid
+		div.twelve.columns(align="center")
+			div.row
+				div.three.columns 
+					b Full_Name :
+				div.nine.columns
+					=repo.full_name
+			div.row
+				div.three.columns
+					b URL : 
+				div.nine.columns
+					a(href=repo.html_url)
+						=repo.html_url
+			div.row
+				div.three.columns
+					b Owner :
+				div.three.columns
+					=repo.owner.login
+				div.six.columns 
+					a(href=repo.owner.html_url)
+						=repo.owner.html_url
+			div.row
+				div.three.columns
+					b Description : 
+				div.nine.columns
+					if (repo.description)
+						=repo.description
+					else
+						| N/A
+			div.row
+				div.three.columns
+					b Created_At : 
+				div.three.columns
+					=repo.created_at
+				div.three.columns
+					b Updated_At : 
+				div.three.columns
+					=repo.updated_at
+			div.row
+				div.three.columns
+					b Watchers : 
+				div.three.columns(style='color: red')
+					=repo.watchers
+				div.three.columns
+					b Forks : 
+				div.three.columns(style='color: red')
+					=repo.forks
+	

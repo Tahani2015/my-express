@@ -1,0 +1,26 @@
+extends layout.jade
+
+block content
+	br
+	h4(style='text-align: center;color: green')='Issues of nn-express'
+	table.u-full-width
+		thead
+			tr
+				th Title
+				th Number
+				th User
+				th URL
+		tbody
+		each item in issues   
+			tr
+				td
+					div.twelve.columns
+						a(href='/issue/view/' + item.id)
+								= item.title
+				td= item.number
+				td= item.user.login
+				td
+					div.twelve.columns
+						a(href=item.html_url)
+								='Issue # '+ item.number
+			

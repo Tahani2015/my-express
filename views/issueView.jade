@@ -1,0 +1,39 @@
+extends layout.jade
+
+block content
+	h4(style='text-align: center;color: green')= issue.title
+	div#example-grid
+		div.twelve.columns(align="center")
+			div.row
+				div.three.columns 
+					b URL :
+				div.nine.columns
+					a(href=issue.html_url)
+						=issue.html_url
+			div.row
+				div.three.columns
+					b User :
+				div.three.columns
+					=issue.user.login
+				div.six.columns
+					a(href=issue.user.html_url)
+						=issue.user.html_url
+			div.row
+				div.three.columns
+					b Created_At : 
+				div.three.columns
+					=issue.created_at
+				div.three.columns
+					b Updated_At : 
+				div.three.columns
+					=issue.updated_at
+			div.row
+				div.three.columns
+					b State : 
+				div.three.columns(style='color: red')
+					=issue.state
+				div.three.columns
+					b Comments : 
+				div.three.columns(style='color: red')
+					=issue.comments
+	

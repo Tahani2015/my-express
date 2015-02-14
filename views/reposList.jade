@@ -1,0 +1,24 @@
+extends layout.jade
+
+block content
+	br
+	h4(style='text-align: center;color: green')='UCDD II - Spring 2015 Repositories'
+	table.u-full-width
+		thead
+			tr
+				th Name
+				th Owner
+				th URL
+		tbody
+		each item in repos    
+			tr
+				td
+					div.twelve.columns
+						a(href='/repo/view/' + item.id)
+								= item.name
+				td= item.owner.login
+				td
+					div.eight.columns
+						a(href=item.html_url)
+								= item.html_url 
+			
